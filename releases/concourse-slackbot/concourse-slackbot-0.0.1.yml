@@ -1,0 +1,15 @@
+name: concourse-slackbot
+version: 0.0.1
+commit_hash: 9de66cc
+uncommitted_changes: false
+jobs:
+- name: concourse-slackbot
+  version: 0f4a5d513888728c1cf3576aa28ee193d6e3a795
+  fingerprint: 0f4a5d513888728c1cf3576aa28ee193d6e3a795
+  sha1: 1b3f765d86eaabd49f7832ab75e91754d9b16884
+packages:
+- name: concourse-slackbot
+  version: 9385a8a85c7459bf9c41292146f0d677c661b547
+  fingerprint: 9385a8a85c7459bf9c41292146f0d677c661b547
+  sha1: c76bfff95597b232d65ce27845c9a60816144feb
+  dependencies: []

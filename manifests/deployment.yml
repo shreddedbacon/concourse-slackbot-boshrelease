@@ -57,6 +57,6 @@ update:
 
 releases:
 - name: concourse-slackbot
-  version: latest
-  #sha1: ""
-  #url: ""
+  version: 0.0.1
+  sha1: 594fec26066b3603b184b9d652ad4adcffe242ab
+  url: https://github.com/shreddedbacon/concourse-slackbot-boshrelease/releases/download/v0.0.1/concourse-slackbot-boshrelease-0.0.1.tgz
