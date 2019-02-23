@@ -4,4 +4,4 @@ name: concourse-slackbot
 dependencies: []
 
 files:
-  - concourse-slackbot/*.tgz
+  - concourse-slackbot/*.tar.gz

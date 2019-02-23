@@ -26,7 +26,7 @@ EOF
 
 pushd bosh-release
 echo > config/blobs.yml
-NEW_VERSION=concoursebot-linux-$(cat ../concoursebot-external/version).tgz
+NEW_VERSION=concoursebot-linux-$(cat ../concoursebot-external/version).tar.gz
 ls ../concoursebot-external/
 bosh add-blob ../concoursebot-external/$NEW_VERSION concourse-slackbot/$NEW_VERSION
 repo_changes=0; git status | grep -q "Changes not staged for commit" && repo_changes=1
