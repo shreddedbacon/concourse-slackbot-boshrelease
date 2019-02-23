@@ -1,0 +1,7 @@
+---
+name: concourse-slackbot
+
+dependencies: []
+
+files:
+  - concourse-slackbot/*.tgz

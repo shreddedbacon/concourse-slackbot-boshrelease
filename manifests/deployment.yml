@@ -1,0 +1,62 @@
+---
+name: concourse-slackbot
+
+stemcells:
+- os: ubuntu-trusty
+  alias: default
+  version: latest
+
+instance_groups:
+- name: concourse-slackbot
+  instances: 1
+  stemcell: default
+  azs: [z1]
+  vm_type: default
+  persistent_disk_type: default
+  networks:
+  - name: default
+  jobs:
+  - name: concourse-slackbot
+    release: concourse-slackbot
+    properties:
+      slack_token: ((slack_token))
+      slack_bot_name: concoursebot
+      slack_start_channel: ((slack_start_channel))
+      slack_start_message: ConcourseBot is alive!
+      concourse_url: https://192.168.50.6
+      concourse_username: ((concourse_username))
+      concourse_password: ((concourse_password))
+      commands:
+        - command: "run pipeline-a job-a"
+          type: "concourse"
+          accept_response: "Got it, I'll get Concourse to start that for you now, it can take some time to do, but I'll let you know when it is done."
+          help: "Run Job-A in Pipeline-A in Concourse; user must be in privileged users list for this bot to run"
+          options:
+            team: "main"
+            pipeline: "pipeline-a"
+            job: job-a"
+            skipoutput: false
+            privileged: true
+          privileged_users: ["user.name"]
+        - command: "run pipeline-a job-b"
+          type: "concourse"
+          accept_response: "Got it, I'll get Concourse to start that for you now, it can take some time to do, but I'll let you know when it is done."
+          help: "Run Job-B in Pipeline-A in Concourse; user must be in privileged users list for this bot to run"
+          options:
+            team: "main"
+            pipeline: "pipeline-a"
+            job: job-b"
+            skipoutput: false
+            privileged: false
+
+update:
+  canaries: 1
+  max_in_flight: 3
+  canary_watch_time: 30000-600000
+  update_watch_time: 5000-600000
+
+releases:
+- name: concourse-slackbot
+  version: latest
+  #sha1: ""
+  #url: ""

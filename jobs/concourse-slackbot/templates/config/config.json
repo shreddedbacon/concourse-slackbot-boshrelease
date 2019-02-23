@@ -1,0 +1,15 @@
+{
+   "slack_token":"<%= p("slack_token") %>",
+   "slack_bot_name":"<%= p("slack_bot_name") %>",
+   "slack_start_channel":"<%= p("slack_start_channel") %>",
+   "slack_start_message":"<%= p("slack_start_message") %>",
+   "concourse_url":"<%= p("concourse_url") %>",
+   "concourse_username":"<%= p("concourse_username") %>",
+   "concourse_password":"<%= p("concourse_password") %>",
+   "debug":<%= p("debug") %>,
+   "commands": <%=
+commands = p("commands")
+JSON.dump(commands)
+%>,
+   "quotes":<%= p("quotes") %>
+}

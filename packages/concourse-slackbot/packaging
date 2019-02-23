@@ -1,0 +1,4 @@
+set -e
+
+tar -zxf concourse-slackbot/concoursebot-linux-*.tgz \
+  -C ${BOSH_INSTALL_TARGET}

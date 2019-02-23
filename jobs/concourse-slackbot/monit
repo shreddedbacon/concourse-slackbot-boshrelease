@@ -1,0 +1,5 @@
+check process concourse-slackbot
+  with pidfile /var/vcap/sys/run/concourse-slackbot/pid
+  start program "/var/vcap/jobs/concourse-slackbot/bin/concourse-slackbot_ctl start"
+  stop program "/var/vcap/jobs/concourse-slackbot/bin/concourse-slackbot_ctl stop"
+  group vcap

@@ -1,0 +1,5 @@
+name: concourse-slackbot
+blobstore:
+  provider: s3
+  options:
+    bucket_name: concoursebot-boshrelease

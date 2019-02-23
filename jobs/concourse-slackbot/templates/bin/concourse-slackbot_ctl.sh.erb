@@ -1,0 +1,33 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/concourse-slackbot
+LOG_DIR=/var/vcap/sys/log/concourse-slackbot
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    set -ex
+    mkdir -p $RUN_DIR $LOG_DIR
+
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    exec /var/vcap/packages/concourse-slackbot/concoursebot \
+      -config-file /var/vcap/jobs/concourse-slackbot/config/config.json \
+      >>  $LOG_DIR/server.stdout.log \
+      2>> $LOG_DIR/server.stderr.log
+
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: concourse-slackbot_ctl {start|stop}" ;;
+
+esac
