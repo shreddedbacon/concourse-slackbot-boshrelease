@@ -56,7 +56,7 @@ bosh -n -e ${BOSH_TARGET} upload-release || echo "Continuing..."
 # delete any failed previous tests
 bosh -n -e ${BOSH_TARGET} -d ${BOSH_DEPLOYMENT} deld --force || echo "continuing on..."
 
-bosh -n -e ${BOSH_TARGET} -d ${BOSH_DEPLOYMENT} d ./manifests/concourse-slackbot.yml \
+bosh -n -e ${BOSH_TARGET} -d ${BOSH_DEPLOYMENT} d ./manifests/deployment.yml \
   -o ../releases.yml
 
 if [[ -n ${TEST_ERRAND} ]]; then
